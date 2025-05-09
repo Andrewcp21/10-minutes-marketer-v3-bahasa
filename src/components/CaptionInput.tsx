@@ -90,7 +90,7 @@ const CaptionInput: React.FC = () => {
 
   const handleCreateMockup = () => {
     if (!caption.trim()) {
-      setError('Please enter a caption before continuing');
+      setError('Silakan masukkan caption sebelum melanjutkan');
       return;
     }
     
@@ -105,22 +105,22 @@ const CaptionInput: React.FC = () => {
       <Timer />
       
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-        <h1 className="text-3xl font-bold text-blue-600 mb-2">Write Your Caption</h1>
+        <h1 className="text-3xl font-bold text-blue-600 mb-2">Tulis Caption Anda</h1>
         <p className="text-gray-600 mb-6">
-          Create an engaging caption for your Instagram post
+          Buat caption yang menarik untuk postingan Instagram Anda
         </p>
         
         {state.generatedImage && (
           <div className="mb-6 bg-gray-100 p-4 rounded-lg">
-            <p className="text-sm text-gray-500 mb-2">Generated Image Preview:</p>
-            <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center overflow-hidden">
+            <p className="text-sm text-gray-500 mb-2">Pratinjau Gambar yang Dihasilkan:</p>
+            <div className="w-full aspect-square bg-gray-200 rounded-md flex items-center justify-center overflow-hidden">
               {state.generatedImage ? (
                 <Image 
                   src={state.generatedImage} 
                   alt="Generated campaign image" 
-                  className="w-full h-full object-cover"
-                  width={500}
-                  height={400}
+                  className="w-full h-full object-contain"
+                  width={1024}
+                  height={1024}
                   onError={(e) => {
                     console.error('Error loading image in CaptionInput');
                     e.currentTarget.src = '/placeholder-image.jpg';
@@ -135,7 +135,7 @@ const CaptionInput: React.FC = () => {
         
         <div className="mb-6">
           <label htmlFor="caption" className="block text-sm font-medium text-gray-700 mb-1">
-            Instagram Caption
+            Caption Instagram
           </label>
           <textarea
             id="caption"
@@ -146,7 +146,7 @@ const CaptionInput: React.FC = () => {
             }}
             rows={6}
             className={`w-full px-4 py-2 border ${error ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-            placeholder="Write your caption here..."
+            placeholder="Tulis caption Anda di sini..."
           />
           {error && <p className="mt-1 text-sm text-red-600">{error}</p>}
         </div>
@@ -154,12 +154,12 @@ const CaptionInput: React.FC = () => {
         {suggestedCaption && (
           <div className="mb-6 bg-blue-50 p-4 rounded-lg border border-blue-100">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="font-semibold text-blue-800">AI Suggested Caption</h3>
+              <h3 className="font-semibold text-blue-800">Caption yang Disarankan AI</h3>
               <button
                 onClick={handleUseSuggestion}
                 className="text-sm bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded"
               >
-                Use This
+                Gunakan Ini
               </button>
             </div>
             <p className="text-blue-700 text-sm">{suggestedCaption}</p>
@@ -168,7 +168,7 @@ const CaptionInput: React.FC = () => {
         
         {isGenerating && (
           <div className="mb-6 p-4 rounded-lg border border-gray-200 text-center">
-            <p className="text-gray-600">Generating caption suggestion...</p>
+            <p className="text-gray-600">Menghasilkan saran caption...</p>
           </div>
         )}
         
@@ -184,10 +184,10 @@ const CaptionInput: React.FC = () => {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Generating...
+                Menghasilkan...
               </>
             ) : (
-              'Regenerate Suggestion'
+              'Hasilkan Ulang Saran'
             )}
           </button>
           
@@ -195,7 +195,7 @@ const CaptionInput: React.FC = () => {
             onClick={handleCreateMockup}
             className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
           >
-            Create Mockup
+            Buat Mockup
           </button>
         </div>
       </div>

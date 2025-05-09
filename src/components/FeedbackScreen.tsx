@@ -26,7 +26,7 @@ const FeedbackScreen: React.FC = () => {
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-blue-600 mb-2">Client Feedback</h1>
           <p className="text-gray-600">
-            {state.clientName} has reviewed your Instagram post
+            {state.clientName} telah memberikan review terhadap postingan Instagram Anda
           </p>
         </div>
         
@@ -70,7 +70,7 @@ const FeedbackScreen: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg border border-gray-200">
-            <h3 className="font-semibold text-gray-800 mb-2">Your Score</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">Skor Anda</h3>
             <div className="flex items-center">
               <div className="text-4xl font-bold text-blue-600 mr-3">
                 {state.score}/100
@@ -93,13 +93,13 @@ const FeedbackScreen: React.FC = () => {
           </div>
           
           <div className="bg-white p-6 rounded-lg border border-gray-200">
-            <h3 className="font-semibold text-gray-800 mb-2">Time Taken</h3>
+            <h3 className="font-semibold text-gray-800 mb-2">Waktu Pengerjaan</h3>
             <div className="text-4xl font-bold text-green-600">
               {minutesTaken}:{secondsTaken.toString().padStart(2, '0')}
             </div>
             {state.elapsedTime < 600 && (
               <p className="text-sm text-green-600 mt-1">
-                Completed under 10 minutes! (+10 bonus points)
+                Selesai kurang dari 10 menit! (+10 poin bonus)
               </p>
             )}
           </div>
@@ -110,7 +110,7 @@ const FeedbackScreen: React.FC = () => {
             onClick={handlePlayAgain}
             className="w-full md:w-1/2 bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
           >
-            Play Again
+            Main Lagi
           </button>
         </div>
       </div>

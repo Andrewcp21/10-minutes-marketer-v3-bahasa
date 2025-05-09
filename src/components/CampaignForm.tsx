@@ -74,6 +74,11 @@ Visual Style: ${formData.visualDescription}
 
 ${clientSpecificDetails}
 
+IMPORTANT SPECIFICATIONS:
+- The image should be in square format with dimensions 1024x1024 pixels
+- Ensure all text and visual elements have sufficient padding from the edges (at least 100 pixels)
+- Make sure no important elements are cut off or too close to the borders
+
 The image should be vibrant, visually striking, and suitable for social media marketing. The composition should be clean with balanced elements and professional typography. Create a realistic, high-quality image that would look authentic on Instagram.`;
     
     // Update global state with form data and set loading state
@@ -148,7 +153,7 @@ The image should be vibrant, visually striking, and suitable for social media ma
       
       {showPreview ? (
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-          <h1 className="text-3xl font-bold text-blue-600 mb-6">Generated Image Preview</h1>
+          <h1 className="text-3xl font-bold text-blue-600 mb-6">Review Gambar yang Dihasilkan</h1>
           
           <div className="mb-6 bg-gray-100 p-4 rounded-lg">
             <div className="w-full aspect-square relative rounded-md overflow-hidden">
@@ -176,45 +181,45 @@ The image should be vibrant, visually striking, and suitable for social media ma
               onClick={() => setShowPreview(false)}
               className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-3 px-4 rounded-md transition duration-200"
             >
-              Back to Form
+              Kembali ke Formulir
             </button>
             
             <button
               onClick={handleProceedToCaptionScreen}
               className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
             >
-              Continue to Caption
+              Lanjutkan ke Caption
             </button>
           </div>
         </div>
       ) : (
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-          <h1 className="text-3xl font-bold text-blue-600 mb-2">Campaign Form</h1>
+          <h1 className="text-3xl font-bold text-blue-600 mb-2">Campaign Brief</h1>
           <p className="text-gray-600 mb-2">
-            Fill out the details for {state.clientName}&apos;s {state.clientType} campaign
+            Isi detail untuk kampanye {state.clientType} {state.clientName}
           </p>
           
           {/* Client Brief Section */}
           <div className="bg-gray-100 p-4 rounded-lg border-l-4 border-blue-500 italic mb-6">
-            <h3 className="font-semibold text-gray-800 mb-1 not-italic">Client Brief:</h3>
+            <h3 className="font-semibold text-gray-800 mb-1 not-italic">Brief Klien:</h3>
             {state.clientName === 'LoveSummer' && (
-              <p>&quot;Hey! I run a local fashion brand for women who love feeling stylish and empowered. Can you create a post that promotes our new summer collection? We want it to feel elegant, fun, and modern.&quot;</p>
+              <p>&quot;Hai! Saya menjalankan brand fashion lokal untuk wanita yang suka merasa stylish dan empowered. Bisakah Anda membuat postingan yang mempromosikan koleksi musim panas baru kami? Kami ingin terkesan elegan, menyenangkan, dan modern.&quot;</p>
             )}
             {state.clientName === 'GoodFood' && (
-              <p>&quot;Yo! I&apos;m launching a new spicy ramen and I want it to go viral. Make something bold and mouth-watering. Don&apos;t hold back – the caption should slap. This is for flavor lovers.&quot;</p>
+              <p>&quot;Yo! Saya meluncurkan ramen pedas baru dan saya ingin viral. Buat sesuatu yang berani dan menggugah selera. Jangan ragu - captionnya harus keren. Ini untuk para pecinta rasa.&quot;</p>
             )}
             {state.clientName === 'Gentleman Palace' && (
-              <p>&quot;Hello. I own a minimalist barbershop focused on precision and clean grooming. I need a social media post for our &quot;Fresh Fade Friday&quot; promo. Keep it sharp, clear, and professional.&quot;</p>
+              <p>&quot;Halo. Saya memiliki barbershop minimalis yang fokus pada presisi dan grooming yang bersih. Saya membutuhkan postingan media sosial untuk promo &quot;Fresh Fade Friday&quot; kami. Buatlah menarik, jelas, dan profesional.&quot;</p>
             )}
             {!['LoveSummer', 'GoodFood', 'Gentleman Palace'].includes(state.clientName) && (
-              <p>&quot;I need a compelling social media post for my {state.clientType} business. Please create something that matches our brand identity and resonates with our target audience.&quot;</p>
+              <p>&quot;Saya membutuhkan postingan media sosial yang menarik untuk bisnis {state.clientType} saya. Mohon buat sesuatu yang sesuai dengan identitas brand kami dan beresonansi dengan target audiens kami.&quot;</p>
             )}
           </div>
           
           <div className="space-y-6">
             <div>
               <label htmlFor="headline" className="block text-sm font-medium text-gray-700 mb-1">
-                Campaign Headline
+                Headline
               </label>
               <input
                 type="text"
@@ -223,9 +228,9 @@ The image should be vibrant, visually striking, and suitable for social media ma
                 value={formData.headline}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${errors.headline ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                placeholder="Enter a catchy headline"
+                placeholder="Masukkan judul yang menarik"
               />
-              {errors.headline && <p className="mt-1 text-sm text-red-600">{errors.headline}</p>}
+              {errors.headline && <p className="mt-1 text-sm text-red-600">Judul diperlukan</p>}
             </div>
             
             <div>
@@ -239,9 +244,9 @@ The image should be vibrant, visually striking, and suitable for social media ma
                 value={formData.usp}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${errors.usp ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                placeholder="What makes this product/service special?"
+                placeholder="Apa yang membuat produk/layanan ini istimewa?"
               />
-              {errors.usp && <p className="mt-1 text-sm text-red-600">{errors.usp}</p>}
+              {errors.usp && <p className="mt-1 text-sm text-red-600">USP diperlukan</p>}
             </div>
             
             <div>
@@ -255,14 +260,14 @@ The image should be vibrant, visually striking, and suitable for social media ma
                 value={formData.cta}
                 onChange={handleChange}
                 className={`w-full px-4 py-2 border ${errors.cta ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                placeholder="What should viewers do next?"
+                placeholder="Apa yang harus dilakukan customer selanjutnya?"
               />
-              {errors.cta && <p className="mt-1 text-sm text-red-600">{errors.cta}</p>}
+              {errors.cta && <p className="mt-1 text-sm text-red-600">CTA diperlukan</p>}
             </div>
             
             <div>
               <label htmlFor="visualDescription" className="block text-sm font-medium text-gray-700 mb-1">
-                Visual Description
+                Deskripsi Visual
               </label>
               <textarea
                 id="visualDescription"
@@ -271,9 +276,9 @@ The image should be vibrant, visually striking, and suitable for social media ma
                 onChange={handleChange}
                 rows={4}
                 className={`w-full px-4 py-2 border ${errors.visualDescription ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500`}
-                placeholder="Describe the visual style, colors, mood, and elements you want in the poster"
+                placeholder="Jelaskan gaya visual, warna, suasana, dan elemen yang Anda inginkan dalam poster"
               />
-              {errors.visualDescription && <p className="mt-1 text-sm text-red-600">{errors.visualDescription}</p>}
+              {errors.visualDescription && <p className="mt-1 text-sm text-red-600">Deskripsi visual diperlukan</p>}
             </div>
             
             <button
@@ -287,10 +292,10 @@ The image should be vibrant, visually striking, and suitable for social media ma
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>
-                  Generating Image...
+                  Tim Desain sedang bekerja...
                 </>
               ) : (
-                'Generate Poster'
+                'Kirim Brief ke tim Desain'
               )}
             </button>
           </div>

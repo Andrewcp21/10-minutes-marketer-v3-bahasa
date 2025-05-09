@@ -44,7 +44,7 @@ export const generateImage = async (prompt: string, clientType: string): Promise
       model: 'gpt-image-1',
       prompt: enhancedPrompt,
       n: 1,
-      size: '1024x1024',
+      size: '1024x1024', // Using standard square size
       quality: 'high'
       // No response_format parameter as it's not supported by gpt-image-1
     });
@@ -145,7 +145,7 @@ export const generateFeedback = async (params: {
     clientPersonalName = 'Alex'; // Default name if client name is not recognized
   }
 
-  const prompt = `You are the client reviewing an Instagram marketing post for your business. Your name is ${clientPersonalName} and you own ${params.clientName}. Based on the following inputs, generate a comprehensive, detailed feedback message that SPECIFICALLY comments on the exact content submitted and give a quality score (0–100).
+  const prompt = `You are the client reviewing an Instagram marketing post for your business. Your name is ${clientPersonalName} and you own ${params.clientName}. Based on the following inputs, generate a comprehensive, detailed feedback message IN BAHASA INDONESIA that SPECIFICALLY comments on the exact content submitted and give a quality score (0–100).
 
 Inputs:
 - Your Name: ${clientPersonalName}
@@ -243,13 +243,13 @@ Score: XX`;
     
     // Generate client-specific fallback feedback instead of throwing an error
     const clientFeedback: Record<string, string> = {
-      'LoveSummer': "As both your client and a marketing expert, I'm impressed with your work! The overall marketing strategy aligns perfectly with our fashion brand identity - elegant, empowering, and modern. Your copywriting has the warm, sophisticated tone our audience responds to, and the headline is memorable and impactful. The visual elements beautifully complement our brand colors and aesthetic, creating an Instagram-worthy post that will stand out in feeds. The call-to-action is clear and compelling, encouraging immediate engagement. Your caption strikes the perfect balance between being informative and conversational, with just the right amount of emojis to enhance engagement without appearing unprofessional. If I could suggest one improvement, perhaps adding a subtle seasonal reference would make it even more timely and relevant. Overall, this is excellent work that captures the essence of LoveSummer!",
-      'GoodFood': "Yo, this campaign is straight FIRE! From a marketing standpoint, you've absolutely nailed our bold, in-your-face brand identity. The copywriting has that perfect casual, energetic vibe that speaks directly to our food-obsessed audience. Your headline is punchy and memorable - exactly what we need to cut through the noise on social. The visual description you've created is mouth-watering and scroll-stopping - those colors and food styling details will definitely make people crave our spicy ramen! The CTA is direct and creates urgency, which is exactly what we want. Your caption has the perfect amount of attitude and slang that resonates with our younger demographic. The emoji game is on point too! One small thing to consider: maybe add something about the unique spice level to really highlight what makes our ramen different. But honestly, this is exactly the kind of content that's going to make our product go viral. Mad respect for understanding the GoodFood vibe so perfectly!",
-      'Gentleman Palace': "I've analyzed your marketing campaign with precision, and I'm pleased to report that it meets our quality standards. From a strategic perspective, you've successfully aligned with our minimalist barbershop brand identity through clean design elements and professional presentation. The copywriting demonstrates technical expertise and structured messaging that our clientele expects. Your headline is concise and informative, clearly communicating our Fresh Fade Friday promotion without unnecessary embellishment. The visual elements you've selected maintain our monochromatic palette and showcase the precision of our grooming services. The call-to-action is appropriately direct and provides clear next steps for booking. Your caption maintains the proper balance of professionalism while still being engaging. I particularly appreciate the absence of excessive emojis, as this aligns with our brand guidelines. One recommendation would be to include more specific technical terminology related to our signature cuts to further establish expertise. Overall, this campaign demonstrates the attention to detail and professional quality that Gentleman Palace represents."
+      'LoveSummer': "Hai! Rina dari LoveSummer di sini. Saya sangat terkesan dengan pekerjaan Anda! Strategi pemasaran secara keseluruhan sangat sesuai dengan identitas brand fashion kami - elegan, memberdayakan, dan modern. Copywriting Anda memiliki nada yang hangat dan canggih yang disukai audiens kami, dan headline-nya mudah diingat dan berdampak. Elemen visual dengan indah melengkapi warna dan estetika brand kami, menciptakan postingan yang layak untuk Instagram dan akan menonjol di feed. Call-to-action-nya jelas dan menarik, mendorong keterlibatan langsung. Caption Anda mencapai keseimbangan sempurna antara informatif dan percakapan, dengan jumlah emoji yang tepat untuk meningkatkan keterlibatan tanpa terlihat tidak profesional. Jika saya bisa menyarankan satu perbaikan, mungkin menambahkan referensi musiman yang halus akan membuatnya lebih tepat waktu dan relevan. Secara keseluruhan, ini adalah pekerjaan yang sangat baik yang menangkap esensi LoveSummer!",
+      'GoodFood': "Yo! Budi dari GoodFood di sini. Kampanye ini benar-benar KEREN! Dari sudut pandang pemasaran, Anda benar-benar menangkap identitas brand kami yang berani dan langsung. Copywriting memiliki nuansa kasual dan energik yang berbicara langsung kepada audiens kami yang tergila-gila dengan makanan. Headline Anda kuat dan mudah diingat - persis yang kami butuhkan untuk menonjol di media sosial. Deskripsi visual yang Anda buat menggugah selera dan menarik perhatian - warna dan detail penyajian makanan pasti akan membuat orang menginginkan ramen pedas kami! CTA-nya langsung dan menciptakan urgensi, yang persis yang kami inginkan. Caption Anda memiliki sikap dan bahasa gaul yang tepat yang beresonansi dengan demografis kami yang lebih muda. Permainan emoji juga tepat! Satu hal kecil yang perlu dipertimbangkan: mungkin tambahkan sesuatu tentang tingkat kepedasan unik untuk benar-benar menyoroti apa yang membuat ramen kami berbeda. Tapi jujur, ini persis jenis konten yang akan membuat produk kami viral. Respect besar karena memahami vibe GoodFood dengan sempurna!",
+      'Gentleman Palace': "Halo. Brian dari Gentleman Palace di sini. Saya telah menganalisis kampanye pemasaran Anda dengan presisi, dan saya senang melaporkan bahwa itu memenuhi standar kualitas kami. Dari perspektif strategis, Anda telah berhasil menyelaraskan dengan identitas brand barbershop minimalis kami melalui elemen desain yang bersih dan presentasi profesional. Copywriting menunjukkan keahlian teknis dan pesan terstruktur yang diharapkan klien kami. Headline Anda ringkas dan informatif, dengan jelas mengkomunikasikan promosi Fresh Fade Friday kami tanpa hiasan yang tidak perlu. Elemen visual yang Anda pilih mempertahankan palet monokromatik kami dan menampilkan presisi layanan grooming kami. Call-to-action tepat sasaran dan memberikan langkah selanjutnya yang jelas untuk pemesanan. Caption Anda mempertahankan keseimbangan profesionalisme yang tepat sambil tetap menarik. Saya sangat menghargai tidak adanya emoji berlebihan, karena ini sesuai dengan pedoman brand kami. Satu rekomendasi adalah menyertakan terminologi teknis yang lebih spesifik terkait dengan potongan rambut unggulan kami untuk lebih memperkuat keahlian. Secara keseluruhan, kampanye ini menunjukkan perhatian terhadap detail dan kualitas profesional yang mewakili Gentleman Palace."
     };
     
     // Create a default feedback if client-specific feedback isn't available
-    const defaultFeedback = `As both your client and a marketing expert, I'm impressed with your ${params.clientType} campaign! \n\nYour marketing strategy effectively targets our audience with a compelling message. The copywriting is engaging and aligns well with our brand voice. Your headline "${params.headline}" is attention-grabbing and memorable. \n\nThe visual elements you've chosen complement our brand identity and will stand out on social media. The call-to-action "${params.cta}" is clear and encourages engagement. Your caption is well-crafted with the right tone and personality for our audience.\n\nOverall, this is excellent work that will help us achieve our marketing goals. The campaign elements work together cohesively to create a strong social media presence.`;
+    const defaultFeedback = `Sebagai klien Anda, saya terkesan dengan kampanye ${params.clientType} Anda! \n\nStrategi pemasaran Anda secara efektif menargetkan audiens kami dengan pesan yang menarik. Copywriting-nya menarik dan selaras dengan suara brand kami. Headline Anda "${params.headline}" menarik perhatian dan mudah diingat. \n\nElemen visual yang Anda pilih melengkapi identitas brand kami dan akan menonjol di media sosial. Call-to-action "${params.cta}" jelas dan mendorong keterlibatan. Caption Anda dibuat dengan baik dengan nada dan kepribadian yang tepat untuk audiens kami.\n\nSecara keseluruhan, ini adalah pekerjaan yang sangat baik yang akan membantu kami mencapai tujuan pemasaran. Elemen kampanye bekerja sama secara kohesif untuk menciptakan kehadiran media sosial yang kuat.`;
     
     // Calculate fallback score
     const timeBonus = params.elapsedTime < 600 ? 10 : 0;
@@ -294,7 +294,7 @@ export const generateCaption = async (params: {
     personalityGuidance = 'The tone should be precise, structured, and professional. Use clean, clear language that appeals to customers who value quality grooming.';
   }
   
-  const prompt = `You are a social media copywriter. Write a catchy, engaging Instagram caption for a brand campaign.
+  const prompt = `You are a social media copywriter. Write a catchy, engaging Instagram caption for a brand campaign in Bahasa Indonesia.
 
 Inputs:
 - Headline: ${params.headline}
@@ -306,7 +306,7 @@ Inputs:
 
 ${personalityGuidance}
 
-Output a caption in 1–2 short paragraphs with 2–3 emojis that perfectly matches the client's personality and business type.`;
+Output a caption in Bahasa Indonesia in 1–2 short paragraphs with 2–3 emojis that perfectly matches the client's personality and business type.`;
 
   try {
     console.log('Starting caption generation with prompt:', prompt);
@@ -345,11 +345,17 @@ Output a caption in 1–2 short paragraphs with 2–3 emojis that perfectly matc
     const emojis = clientTypeEmojis[params.clientType] || ['🎯', '🚀', '💯'];
     
     if (params.clientPersonality === 'Appreciative') {
-      return `${emojis[0]} Elevate your style with our ${params.headline}! ${emojis[1]}\n\n${params.usp} Don't miss out on looking and feeling your best. ${params.cta} ${emojis[2]}`;
+      return `${emojis[0]} Tingkatkan gaya Anda dengan ${params.headline} kami! ${emojis[1]}
+
+${params.usp} Jangan lewatkan kesempatan untuk tampil dan merasa terbaik. ${params.cta} ${emojis[2]}`;
     } else if (params.clientPersonality === 'Outspoken') {
-      return `${emojis[0]} Introducing: ${params.headline} that will blow your taste buds away! ${emojis[1]}\n\n${params.usp} Ready for a flavor explosion? ${params.cta} ${emojis[2]}`;
+      return `${emojis[0]} Memperkenalkan: ${params.headline} yang akan meledakkan lidah Anda! ${emojis[1]}
+
+${params.usp} Siap untuk ledakan rasa? ${params.cta} ${emojis[2]}`;
     } else {
-      return `${emojis[0]} ${params.headline} - for those who appreciate precision and style. ${emojis[1]}\n\n${params.usp} Looking sharp has never been easier. ${params.cta} ${emojis[2]}`;
+      return `${emojis[0]} ${params.headline} - untuk mereka yang menghargai presisi dan gaya. ${emojis[1]}
+
+${params.usp} Tampil tajam belum pernah semudah ini. ${params.cta} ${emojis[2]}`;
     }
   }
 };

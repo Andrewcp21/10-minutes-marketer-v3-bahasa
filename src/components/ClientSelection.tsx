@@ -24,21 +24,21 @@ const ClientSelection: React.FC = () => {
       type: 'Fashion',
       personality: 'Appreciative',
       image: `/clients/lovesummer.png?v=${version}`,
-      description: 'Fashion brand for women who love feeling stylish and empowered'
+      description: 'Brand fashion untuk wanita yang suka merasa stylish dan empowered'
     },
     {
       name: 'GoodFood',
       type: 'F&B',
       personality: 'Outspoken',
       image: `/clients/goodfood.png?v=${version}`,
-      description: 'Bold and innovative food & beverage business with a focus on flavor'
+      description: 'Bisnis makanan & minuman yang berani dan inovatif dengan fokus pada cita rasa'
     },
     {
       name: 'Gentleman Palace',
       type: 'Barbershop',
       personality: 'Technical',
       image: `/clients/gentlemanpalace.png?v=${version}`,
-      description: 'Minimalist barbershop focused on precision and clean grooming'
+      description: 'Barbershop minimalis yang fokus pada presisi dan grooming yang bersih'
     }
   ];
 
@@ -54,9 +54,9 @@ const ClientSelection: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 p-4">
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Choose Your Client</h1>
+        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Pilih Klien Anda</h1>
         <p className="text-gray-600 text-center mb-8">
-          Select a client to work with on their social media campaign
+          Pilih klien untuk bekerja sama dalam kampanye media sosial mereka
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

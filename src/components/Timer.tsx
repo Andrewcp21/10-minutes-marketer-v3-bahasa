@@ -66,7 +66,7 @@ const Timer: React.FC = () => {
 
   return (
     <div className="fixed top-4 right-4 bg-white shadow-md rounded-lg p-2 text-center">
-      <div className="text-sm font-semibold text-gray-600">Time Remaining</div>
+      <div className="text-sm font-semibold text-gray-600">Sisa Waktu</div>
       <div className={`text-2xl font-bold ${timeLeft < 60 ? 'text-red-500' : 'text-blue-600'}`}>
         {minutes.toString().padStart(2, '0')}:{seconds.toString().padStart(2, '0')}
       </div>
