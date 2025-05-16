@@ -15,7 +15,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "10 Minutes Marketer",
   description: "A gamified AI web app simulating the life of a social media marketer",
+  icons: {
+    icon: "icon.jpg",
+  },
 };
+
 
 export default function RootLayout({
   children,
