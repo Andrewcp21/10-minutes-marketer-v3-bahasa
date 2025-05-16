@@ -5,63 +5,51 @@ import { useAppContext } from '@/context/AppContext';
 
 const Timer: React.FC = () => {
   const { state, updateState } = useAppContext();
-  const [timeLeft, setTimeLeft] = useState<number>(600); // 10 minutes in seconds
+  const [timeLeft, setTimeLeft] = useState<number>(600); // 10 minutes
   const [clientSide, setClientSide] = useState(false);
 
-  // Only run on client side
   useEffect(() => {
     setClientSide(true);
   }, []);
 
-  // Initialize and update timer
   useEffect(() => {
-    if (!clientSide) return;
-    
-    // If timer hasn't started, don't do anything
-    if (!state.timerStart) return;
-    
-    // Calculate initial time left and elapsed time
+    if (!clientSide || !state.timerStart) return;
+
     const calculateTimes = () => {
       const now = Date.now();
-      // Handle the case where timerStart might be null
-      if (state.timerStart === null) return { remaining: 600, elapsed: 0 };
-      const elapsed = Math.floor((now - state.timerStart) / 1000);
+      const elapsed = Math.floor((now - state.timerStart!) / 1000);
       const remaining = Math.max(600 - elapsed, 0);
       return { remaining, elapsed };
     };
-    
-    // Get initial times
+
     const { remaining, elapsed } = calculateTimes();
-    
-    // Set initial time left
     setTimeLeft(remaining);
-    
-    // Update global state with elapsed time
-    updateState({ elapsedTime: elapsed });
-    
-    // Update timer every second
+
+    // Only update global state if elapsed time actually changed
+    if (state.elapsedTime !== elapsed) {
+      updateState({ elapsedTime: elapsed });
+    }
+
     const interval = setInterval(() => {
       const { remaining, elapsed } = calculateTimes();
       setTimeLeft(remaining);
-      
-      // Update global state with elapsed time
-      updateState({ elapsedTime: elapsed });
-      
-      // If timer reaches zero, clear interval
+
+      // Prevent unnecessary re-rendering loop
+      if (state.elapsedTime !== elapsed) {
+        updateState({ elapsedTime: elapsed });
+      }
+
       if (remaining <= 0) {
         clearInterval(interval);
       }
     }, 1000);
-    
-    // Cleanup on unmount
-    return () => clearInterval(interval);
-  }, [clientSide, state.timerStart, updateState]);
 
-  // Format time display
+    return () => clearInterval(interval);
+  }, [clientSide, state.timerStart]);
+
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
 
-  // Don't render anything during SSR to avoid hydration mismatch
   if (!clientSide) return null;
 
   return (
