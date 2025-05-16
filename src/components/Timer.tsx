@@ -8,9 +8,10 @@ const Timer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<number>(600); // 10 minutes
   const [clientSide, setClientSide] = useState(false);
 
-  useEffect(() => {
-    setClientSide(true);
-  }, []);
+useEffect(() => {
+  // logic
+}, [clientSide, state.timerStart, state.elapsedTime, updateState]);
+
 
   useEffect(() => {
     if (!clientSide || !state.timerStart) return;
