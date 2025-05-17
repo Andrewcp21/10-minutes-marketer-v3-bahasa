@@ -118,7 +118,7 @@ Secara keseluruhan, ini adalah pekerjaan yang sangat baik yang akan membantu kam
       <Timer />
       
       <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6 mt-16">
-        <h1 className="text-2xl font-bold text-blue-600 mb-4 text-center">Instagram Preview</h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Instagram Preview</h1>
         
         {/* Instagram post mockup */}
         <div className="border border-gray-300 rounded-lg overflow-hidden bg-white">
@@ -225,7 +225,7 @@ Secara keseluruhan, ini adalah pekerjaan yang sangat baik yang akan membantu kam
           <button
             onClick={handleSubmitToClient}
             disabled={state.isGeneratingFeedback}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            className="w-full bg-black hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
           >
             {state.isGeneratingFeedback ? (
               <>
@@ -236,7 +236,7 @@ Secara keseluruhan, ini adalah pekerjaan yang sangat baik yang akan membantu kam
                 Menunggu Feedback...
               </>
             ) : (
-              'Kirim ke Klien'
+              'Kirim ke Client'
             )}
           </button>
         </div>

@@ -20,11 +20,22 @@ const CampaignForm: React.FC = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+  
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+  
+    // Clear the error as soon as user enters text
+    if (value.trim() !== '') {
+      setErrors(prevErrors => {
+        const updatedErrors = { ...prevErrors };
+        delete updatedErrors[name];
+        return updatedErrors;
+      });
+    }
   };
+  
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -153,7 +164,7 @@ The image should be vibrant, visually striking, and suitable for social media ma
       
       {showPreview ? (
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-          <h1 className="text-3xl font-bold text-blue-600 mb-6">Review Gambar yang Dihasilkan</h1>
+          <h1 className="text-3xl font-bold mb-6">Review Gambar yang Dihasilkan</h1>
           
           <div className="mb-6 bg-gray-100 p-4 rounded-lg">
             <div className="w-full aspect-square relative rounded-md overflow-hidden">
@@ -186,7 +197,7 @@ The image should be vibrant, visually striking, and suitable for social media ma
             
             <button
               onClick={handleProceedToCaptionScreen}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
+              className="flex-1 border bg-black hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
             >
               Lanjutkan ke Caption
             </button>
@@ -194,13 +205,13 @@ The image should be vibrant, visually striking, and suitable for social media ma
         </div>
       ) : (
         <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-          <h1 className="text-3xl font-bold text-blue-600 mb-2">Campaign Brief</h1>
+          <h1 className="text-3xl font-bold mb-2">Campaign Brief</h1>
           <p className="text-gray-600 mb-2">
             Isi detail untuk kampanye {state.clientType} {state.clientName}
           </p>
           
           {/* Client Brief Section */}
-          <div className="bg-gray-100 p-4 rounded-lg border-l-4 border-blue-500 italic mb-6">
+          <div className="bg-yellow-100 p-4 rounded-lg border-l-4 border-yellow-400 italic mb-6">
             <h3 className="font-semibold text-gray-800 mb-1 not-italic">Brief Klien:</h3>
             {state.clientName === 'LoveSummer' && (
               <p>&quot;Hai! Saya menjalankan brand fashion lokal untuk wanita yang suka merasa stylish dan empowered. Bisakah Anda membuat postingan yang mempromosikan koleksi musim panas baru kami? Kami ingin terkesan elegan, menyenangkan, dan modern.&quot;</p>
@@ -284,7 +295,7 @@ The image should be vibrant, visually striking, and suitable for social media ma
             <button
               onClick={handleGeneratePoster}
               disabled={state.isGeneratingImage}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+              className="w-full bg-black hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
             >
               {state.isGeneratingImage ? (
                 <>

@@ -8,10 +8,10 @@ const Timer: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState<number>(600); // 10 minutes
   const [clientSide, setClientSide] = useState(false);
 
-useEffect(() => {
-  // logic
-}, [clientSide, state.timerStart, state.elapsedTime, updateState]);
-
+  // ✅ Ensure this runs only on client
+  useEffect(() => {
+    setClientSide(true);
+  }, []);
 
   useEffect(() => {
     if (!clientSide || !state.timerStart) return;
@@ -26,7 +26,6 @@ useEffect(() => {
     const { remaining, elapsed } = calculateTimes();
     setTimeLeft(remaining);
 
-    // Only update global state if elapsed time actually changed
     if (state.elapsedTime !== elapsed) {
       updateState({ elapsedTime: elapsed });
     }
@@ -35,7 +34,6 @@ useEffect(() => {
       const { remaining, elapsed } = calculateTimes();
       setTimeLeft(remaining);
 
-      // Prevent unnecessary re-rendering loop
       if (state.elapsedTime !== elapsed) {
         updateState({ elapsedTime: elapsed });
       }

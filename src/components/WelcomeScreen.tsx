@@ -22,7 +22,13 @@ const WelcomeScreen: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-yellow-300 via-yellow-200 to-yellow-400 p-4 animate-fadeIn">
+    <div
+  className="flex flex-col items-center justify-center min-h-screen bg-repeat p-4 animate-fadeIn"
+  // style={{
+  //   backgroundImage: `url('/revou-pattern.png')`,
+  //   backgroundSize: '10000px', // Adjust size as needed
+  // }}
+>
 
       <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 text-center space-y-6">
         {/* LOGO */}
@@ -62,11 +68,12 @@ const WelcomeScreen: React.FC = () => {
 
         {/* BUTTON */}
         <button
-          onClick={handleStart}
-          className="w-full bg-black hover:bg-yellow-500 text-white hover:text-black font-bold py-3 px-4 rounded-lg transition duration-300"
-        >
-          Mulai
-        </button>
+  onClick={handleStart}
+  className="w-full bg-black text-white font-bold py-3 px-4 rounded-lg transition duration-300 border border-transparent hover:border-black border-solid hover:bg-blue-700"
+>
+  Mulai
+</button>
+
       </div>
     </div>
   );

@@ -105,7 +105,7 @@ const CaptionInput: React.FC = () => {
       <Timer />
       
       <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 mt-16">
-        <h1 className="text-3xl font-bold text-blue-600 mb-2">Tulis Caption Anda</h1>
+        <h1 className="text-3xl font-bold mb-2">Tulis Caption Anda</h1>
         <p className="text-gray-600 mb-6">
           Buat caption yang menarik untuk postingan Instagram Anda
         </p>
@@ -193,7 +193,7 @@ const CaptionInput: React.FC = () => {
           
           <button
             onClick={handleCreateMockup}
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
+            className="flex-1 bg-black hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
           >
             Buat Mockup
           </button>

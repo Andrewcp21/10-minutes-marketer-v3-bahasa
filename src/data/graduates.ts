@@ -14,14 +14,14 @@ const graduates = [
         image: "/graduates/Giska_Adilah.jpeg",
         profileLink: "https://linkedin.com/in/raka",
         logo: "/graduates/giska_logo.png"
-      },
+      },      
       {
-        name: "Kevin Winoto",
-        job: "Digital Marketing Executive",
-        company: "Aryaduta Hotel Group",
-        image: "/graduates/Kevin_Winoto.jpeg",
-        profileLink: "https://www.linkedin.com/in/kevin-winoto-2616a111b",
-        logo: "/graduates/kevin_logo.jpeg"
+        name: "Revita Yustianawati",
+        job: "Performance Marketing",
+        company: "PT Aera Indonesia Project",
+        image: "/graduates/revita.jpg",
+        profileLink: "https://www.linkedin.com/in/revita-yustiana/",
+        logo: "/graduates/aera.png"
       },
       {
         name: "Dea Refika Nita",
@@ -48,12 +48,12 @@ const graduates = [
         logo: "/graduates/alam.png"
       },
       {
-        name: "Revita Yustianawati",
-        job: "Performance Marketing",
-        company: "PT Aera Indonesia Project",
-        image: "/graduates/revita.jpg",
-        profileLink: "https://www.linkedin.com/in/revita-yustiana/",
-        logo: "/graduates/aera.png"
+        name: "Kevin Winoto",
+        job: "Digital Marketing Executive",
+        company: "Aryaduta Hotel Group",
+        image: "/graduates/Kevin_Winoto.jpeg",
+        profileLink: "https://www.linkedin.com/in/kevin-winoto-2616a111b",
+        logo: "/graduates/kevin_logo.jpeg"  
       },
       {
         name: "Tutik Dwi Hartini",
@@ -66,7 +66,7 @@ const graduates = [
       {
         name: "Triascahya Dirgantara Adhiasa",
         job: "Digital Marketing Manager",
-        company: "Tancorp (IdeaCloud, Hermanto Tanoko's Business Unit)",
+        company: "Topgolf Indonesia",
         image: "/graduates/trias.jpeg",
         profileLink: "https://www.linkedin.com/in/triascahya/",
         logo: "/graduates/parador.jpeg"

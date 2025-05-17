@@ -52,9 +52,9 @@ const ClientSelection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 p-4">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 p-4" >
       <div className="w-full max-w-4xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-center text-blue-600 mb-6">Pilih Klien Anda</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Pilih Klien Anda</h1>
         <p className="text-gray-600 text-center mb-8">
           Pilih klien untuk bekerja sama dalam kampanye media sosial mereka
         </p>
@@ -86,7 +86,7 @@ const ClientSelection: React.FC = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-bold text-blue-600">{client.name}</h3>
+              <h3 className="text-xl font-bold ">{client.name}</h3>
               <p className="text-sm text-gray-500 mb-2">{client.type} • {client.personality}</p>
               <p className="text-gray-700">{client.description}</p>
             </div>

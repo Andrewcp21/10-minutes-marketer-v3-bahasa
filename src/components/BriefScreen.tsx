@@ -23,11 +23,11 @@ const BriefScreen: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-blue-50 to-purple-100 p-4">
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg p-8">
-        <h1 className="text-3xl font-bold text-blue-600 mb-6">Brief Anda</h1>
+        <h1 className="text-3xl font-bold mb-6">Brief Anda</h1>
         
         <div className="mb-8">
           <div className="flex items-center mb-4">
-            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
+            <div className="w-12 h-12 rounded-full flex items-center justify-center text-blue-600 font-bold text-xl mr-4">
               {state.clientName[0]}
             </div>
             <div>
@@ -36,16 +36,17 @@ const BriefScreen: React.FC = () => {
             </div>
           </div>
           
-          <div className="bg-gray-100 p-6 rounded-lg border-l-4 border-blue-500 italic">
+          <div className="bg-yellow-100 p-6 rounded-lg border-l-4 border-yellow-500 italic">
             {clientBriefs[state.clientName] || 
               `Saya membutuhkan postingan media sosial yang menarik untuk bisnis ${state.clientType} saya. Mohon buat sesuatu yang sesuai dengan identitas brand kami dan beresonansi dengan target audiens kami.`
             }
           </div>
+          
         </div>
         
-        <div className="bg-yellow-50 p-4 rounded-lg mb-8 border border-yellow-200">
-          <h3 className="font-semibold text-yellow-800 mb-2">Tugas Anda</h3>
-          <p className="text-yellow-700">
+        <div className="bg-white-50 p-4 rounded-lg mb-8 border border-black">
+          <h3 className="font-semibold text-black mb-2">Tugas Anda</h3>
+          <p className="text-black-700">
             Anda memiliki 10 menit untuk membuat postingan Instagram untuk {state.clientName}. 
             Anda perlu mengisi formulir kampanye, menghasilkan gambar poster, menulis caption, 
             dan mengirimkan pekerjaan Anda untuk mendapatkan umpan balik.
@@ -54,7 +55,7 @@ const BriefScreen: React.FC = () => {
         
         <button
           onClick={handleStartCampaign}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
+          className="w-full bg-black hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition duration-200"
         >
           Mulai Membuat Campaign (Timer 10:00)
         </button>
